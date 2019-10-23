@@ -1,0 +1,20 @@
+Virtual memory map with 5 level page tables:
+ 
+0000000000000000 - 00ffffffffffffff (=56 bits) user space, different per mm hole caused by [56:63] sign extension
+ff00000000000000 - ff0fffffffffffff (=52 bits) guard hole, reserved for hypervisor
+ff10000000000000 - ff8fffffffffffff (=55 bits) direct mapping of all phys. memory
+ff90000000000000 - ff91ffffffffffff (=49 bits) hole
+ff92000000000000 - ffd1ffffffffffff (=54 bits) vmalloc/ioremap space
+ffd2000000000000 - ffd3ffffffffffff (=49 bits) hole
+ffd4000000000000 - ffd5ffffffffffff (=49 bits) virtual memory map (512TB)
+... unused hole ...
+ffd8000000000000 - fff7ffffffffffff (=53 bits) kasan shadow memory (8PB)
+... unused hole ...
+ffffff0000000000 - ffffff7fffffffff (=39 bits) %esp fixup stacks
+... unused hole ...
+ffffffef00000000 - fffffffeffffffff (=64 GB) EFI region mapping space
+... unused hole ...
+ffffffff80000000 - ffffffff9fffffff (=512 MB)  kernel text mapping, from phys 0
+ffffffffa0000000 - ffffffffff5fffff (=1526 MB) module mapping space
+ffffffffff600000 - ffffffffffdfffff (=8 MB) vsyscalls
+ffffffffffe00000 - ffffffffffffffff (=2 MB) unused hole
