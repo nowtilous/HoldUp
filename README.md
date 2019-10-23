@@ -209,10 +209,6 @@ $> dmesg
 [17758.712774] holdup: VM [1] Hidden module, module name="adore_ng" ptr=FFFFFFFFC0920080
 ```
 
-<figure class="video_container">
-  <iframe src="https://drive.google.com/file/d/1WL4YEI7pyNSVVtAmMg1nrOXzexwNAd5c/preview" frameborder="0" allowfullscreen="true"> </iframe>
-</figure>
-
 
 
 
