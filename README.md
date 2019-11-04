@@ -19,9 +19,6 @@ HoldUp relies upon its two subparts lightweight hypervisor and a security monito
 <br><br>
 HoldUp manipulates address translations from the guest physical address to the host physical address in order to exclude unauthorized accesses to the host and the hypervisor spaces. In that way, HoldUp can properly introspect the guest operating system and mediate all accesses, even when the operating system is compromised.
 <br><br>
-The following is a visual representation of HoldUp's architecture:
-
-![Architecture](Images/holdup architecture simplified.png)
 
 # 3. How to Build
 `HoldUp supports only kernel versions from 3.19.0 until 4.14.0`  
@@ -56,10 +53,9 @@ The process is as follows:
 HoldUp should locate the data structures and functions for kernel integrity verification.  
 These symbols can be found using kallsyms, but not all symbols are exposed to kallsyms.  
 Therefore, HoldUp uses the System.map file to embed symbols and kernel versions. How to add symbols and kernel versions to HoldUp is as follows:
-
+Clone the repository, and then:
 ```bash
     # Prepare HoldUp source.
-    $> git clone https://gitlab.com/RonMash/acre-066-holdup.git
     $> cd acre-066-holdup
 
     # Prepare kernel symbols.
